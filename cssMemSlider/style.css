@@ -9,3 +9,107 @@
 html {
   font-size: 10px;
 }
+
+#slider {
+  margin: 0 auto;
+  width: 500px;
+  max-width: 100%;
+}
+
+.app__input-radio { /*отключаем радио кнопки*/
+   display: none;
+}
+
+#slider label {
+  cursor:pointer;
+  text-decoration: none;
+}
+
+#slides {
+  padding: 10px;
+  border: 3px solid #ccc;
+  background: #fff;
+  width: 100%;
+  overflow: hidden;
+  height: 400px;
+}
+
+#overflow {
+  width: calc(100% * 4);
+  height: 100%;
+  display: flex;
+
+  transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  line-height: 0;
+  margin-left: 0;
+}
+
+#overflow img {
+  width: calc(100% / 4);
+  height: 100%;
+  object-fit: cover;
+}
+
+#slide1:checked ~ #slides #overflow,
+#slide1:checked ~ .content #slides-text #overflow-text {
+   margin-left: 0;
+}
+#slide2:checked ~ #slides #overflow,
+#slide2:checked ~ .content #slides-text #overflow-text  {
+   margin-left: -100%;
+}
+#slide3:checked ~ #slides #overflow,
+#slide3:checked ~ .content #slides-text #overflow-text  {
+   margin-left: -200%;
+}
+#slide4:checked ~ #slides #overflow,
+#slide4:checked ~ .content #slides-text #overflow-text  {
+   margin-left: -300%;
+}
+
+#bullets label {
+   display: inline-block;
+   width: 10px;
+   height: 10px;
+   border-radius:100%;
+   background: #ccc;
+   margin: 0 10px;
+}
+
+#slide1:checked ~ .content #bullets label:nth-child(1),
+#slide2:checked ~ .content #bullets label:nth-child(2),
+#slide3:checked ~ .content #bullets label:nth-child(3),
+#slide4:checked ~ .content #bullets label:nth-child(4) {
+   background: #444;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 0;
+  height: 50px;
+}
+
+#slides-text {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#overflow-text {
+  width: calc(100% * 4);
+  height: 100%;
+  display: flex;
+
+  transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  line-height: 0;
+  margin-left: 0;
+}
+
+#overflow-text p {
+  color: red;
+  font-size: 1.4rem;
+  width: calc(100% / 4);
+  line-height: 18px;
+}
