@@ -10,28 +10,42 @@ html {
   font-size: 10px;
 }
 
+body {
+  background-image: url('./assets/forest-bg.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
 #slider {
-  margin: 0 auto;
-  width: 500px;
-  max-width: 100%;
+  width: 60%;
+  height: 494px;
+  padding: 25px 35px;
+  border-radius: 14px;
+
+  background: rgba(27,28,33,.6);
 }
 
 .app__input-radio { /*отключаем радио кнопки*/
    display: none;
 }
 
-#slider label {
+/*#slider label {
   cursor:pointer;
   text-decoration: none;
-}
+}*/
 
 #slides {
-  padding: 10px;
-  border: 3px solid #ccc;
-  background: #fff;
   width: 100%;
   overflow: hidden;
   height: 400px;
+  border-radius: 14px;
 }
 
 #overflow {
@@ -69,31 +83,45 @@ html {
 
 #bullets label {
    display: inline-block;
-   width: 10px;
-   height: 10px;
-   border-radius:100%;
-   background: #ccc;
-   margin: 0 10px;
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+   cursor: pointer;
 }
 
-#slide1:checked ~ .content #bullets label:nth-child(1),
-#slide2:checked ~ .content #bullets label:nth-child(2),
-#slide3:checked ~ .content #bullets label:nth-child(3),
-#slide4:checked ~ .content #bullets label:nth-child(4) {
-   background: #444;
+#bullets label:hover .bullets__item{
+  background-color: #fff !important;
+  border-color: #fff !important;
+}
+
+.bullets__item {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 10px;
+  display: block;
+  background: rgb(24 240 119);
+}
+
+#slide1:checked ~ .content #bullets label:nth-child(1) .bullets__item,
+#slide2:checked ~ .content #bullets label:nth-child(2) .bullets__item,
+#slide3:checked ~ .content #bullets label:nth-child(3) .bullets__item,
+#slide4:checked ~ .content #bullets label:nth-child(4) .bullets__item{
+  border: 2px solid rgb(24 240 119);
+  background: transparent !important;
 }
 
 .content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 0 0;
   height: 50px;
 }
 
 #slides-text {
   width: 50%;
-  height: 100%;
+  height: 15px;
   overflow: hidden;
 }
 
@@ -108,8 +136,10 @@ html {
 }
 
 #overflow-text p {
-  color: red;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   width: calc(100% / 4);
+  font-weight: 600;
   line-height: 18px;
+  font-weight: 300;
+  color: rgba(255,255,255,.6);
 }
